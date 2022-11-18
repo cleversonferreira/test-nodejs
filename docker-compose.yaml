@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+      target: base
+    volumes:
+      - ./src:/home/node/app/src
+    container_name: boticario-server
+    expose:
+      - '3000'
+    ports:
+      - '3000:3000'
+    command: yarn start
+  mongodb:
+    image: mongo:5.0
+    ports:
+      - 27017:27017
+    volumes:
+      - ./database/mongo:/data/db
+    container_name: boticario-mongodb
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=boticario
+      - MONGO_INITDB_ROOT_PASSWORD=boticario
