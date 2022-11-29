@@ -7,6 +7,12 @@ Name: Cleverson Franco
 docker compose up -d
 ```
 
+### Running tests
+
+```bash
+npm test
+```
+
 ### Routes
 Aplication: https://localhost:3000
 
